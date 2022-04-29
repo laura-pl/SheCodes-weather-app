@@ -1,0 +1,46 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+h1 {
+  font-family: "DM Serif Display", serif;
+}
+
+footer {
+  font-family: monospace;
+  font-size: 12px;
+  margin-top: 20px;
+}
+span.units {
+  font-size: 12px;
+  position: relative;
+  top: -13px;
+}
+.container {
+  text-align: center;
+  background: #f6eedf;
+  width: 70%;
+  border: 1px solid #f6eedf;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 30px;
+}
+
+.current.conditions {
+  font-size: 80px;
+  margin: 60px 0 20px;
+}
+
+.current.conditions,
+.future {
+  opacity: 0.8;
+}
+
+.current.temp {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.current.description,
+.current.day-time {
+  font-size: 14px;
+}
