@@ -25,11 +25,6 @@ span.units {
   padding: 30px;
 }
 
-.current.conditions {
-  font-size: 80px;
-  margin: 60px 0 20px;
-}
-
 .current.conditions,
 .future {
   opacity: 0.8;
@@ -43,4 +38,8 @@ span.units {
 .current.description,
 .current.day-time {
   font-size: 14px;
+}
+
+#icon-current {
+  margin: 60px 0 20px;
 }

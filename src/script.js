@@ -47,7 +47,6 @@ function formatDate(timestamp) {
 }
 
 function showCurrentConditions(response) {
-  console.log(response);
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -64,6 +63,12 @@ function showCurrentConditions(response) {
   document.querySelector("#sunset").innerHTML = formatDate(
     response.data.sys.sunset * 1000
   );
+  let iconCurrent = document.querySelector("#icon-current");
+  iconCurrent.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconCurrent.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showCurrentLocation(event) {
