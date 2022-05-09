@@ -47,9 +47,9 @@ function formatDate(timestamp) {
 }
 
 function showCurrentConditions(response) {
-  document.querySelector("#current-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemp = response.data.main.temp;
+  document.querySelector("#current-temperature").innerHTML =
+    Math.round(celsiusTemp);
   document.querySelector("#current-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#current-city").innerHTML = response.data.name;
@@ -81,6 +81,23 @@ function showCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(findCurrentLocation);
 }
 
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let currentTemp = document.querySelector("#current-temperature");
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temperature");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
 let now = new Date();
 let todayDayTime = document.querySelector("#today-day-time");
 todayDayTime.innerHTML = getDayTime(now);
@@ -98,3 +115,9 @@ axios.get(cityTemp).then(showCurrentConditions);
 
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", showCurrentLocation);
+
+let celsiusTemp = null;
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
