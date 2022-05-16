@@ -26,21 +26,21 @@ span.units {
   padding: 30px;
 }
 
-.current.conditions,
-.future {
+.current,
+.week-forecast-day {
   opacity: 0.8;
 }
 
-.current.temp {
+.current-temp {
   font-size: 30px;
   font-weight: 500;
 }
 
-.current.temp a {
+.current-temp a {
   text-decoration: none;
 }
 
-.current.temp .active {
+.current-temp .active {
   color: #000;
   cursor: default;
 }
@@ -48,6 +48,14 @@ span.units {
 .current.description,
 .current.day-time {
   font-size: 14px;
+}
+
+.week-forecast-temps {
+  font-size: 12px;
+}
+
+.week-forecast-temp-min {
+  opacity: 0.7;
 }
 
 #icon-current {
