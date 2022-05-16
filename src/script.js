@@ -98,6 +98,25 @@ function displayCelsiusTemp(event) {
   fahrenheitLink.classList.remove("active");
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="week-forecast-day">${day}</div>
+            <i class="fa-solid fa-sun"></i>
+            <div class="week-forecast-temps">
+              <span class="week-forecast-temp-max">17° </span>
+              <span class="week-forecast-temp-min">10°</span>
+            </div>`;
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+  });
+}
+
 let now = new Date();
 let todayDayTime = document.querySelector("#today-day-time");
 todayDayTime.innerHTML = getDayTime(now);
@@ -121,3 +140,5 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+displayForecast();
