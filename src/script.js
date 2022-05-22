@@ -95,23 +95,6 @@ function showCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(findCurrentLocation);
 }
 
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  let currentTemp = document.querySelector("#current-temperature");
-  currentTemp.innerHTML = Math.round(fahrenheitTemp);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-temperature");
-  currentTemp.innerHTML = Math.round(celsiusTemp);
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-}
-
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -158,7 +141,3 @@ let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", showCurrentLocation);
 
 let celsiusTemp = null;
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);

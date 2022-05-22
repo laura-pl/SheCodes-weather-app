@@ -36,15 +36,6 @@ span.units {
   font-weight: 500;
 }
 
-.current-temp a {
-  text-decoration: none;
-}
-
-.current-temp .active {
-  color: #000;
-  cursor: default;
-}
-
 .current.description,
 .current.day-time {
   font-size: 14px;
